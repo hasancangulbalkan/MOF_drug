@@ -1,4 +1,4 @@
-This is the repository thatb includes the ML models developed to predict drug storage capacities of MOFs. 
+This is the repository that includes the ML models developed to predict drug storage capacities of MOFs. 
 
 - .xlsx files contain the input features for MOFs used to build the ML models. The columns represent various structural features of MOFs and DFT-based features of drug molecules, and the last column is the target data (e.g., 5-FU uptakes at 1 bar).
 
