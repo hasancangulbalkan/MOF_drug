@@ -6,6 +6,4 @@ This is the repository that includes the ML models developed to predict drug sto
 
 - .py files contain the best ML pipelines that are identified for predicting the drug adsorption data at 1 bar.
 
-- This repository has been archived on Zenodo. The archived version associated with the manuscript is available at:
-
-https://doi.org/10.5281/zenodo.21340484
+- This repository has been archived on Zenodo. The archived version associated with the manuscript is available at: https://doi.org/10.5281/zenodo.21340484
