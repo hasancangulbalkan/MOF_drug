@@ -6,13 +6,34 @@
   <img src="media/toc.png" width="750" alt="Graphical abstract">
 </p>
 
-This repository contains the code, data and trained ML models for the paper "Machine Learning-Accelerated Discovery of MOFs for Storage and Delivery of Anticancer Drug Molecules" (Digital Discovery, 2026).
+## Overview
 
-- .xlsx files contain the input features for MOFs used to build the ML models. The columns represent various structural features of MOFs and DFT-based features of drug molecules, and the last column is the target data (e.g., 5-FU uptakes at 1 bar).
+We combine molecular simulations with machine learning (ML) to predict the adsorption of anticancer drugs in metal–organic frameworks (MOFs). ML models were developed to predict:
 
--	TPOT input parameters: generation parameter is set to 10, meaning the genetic algorithm will run for 10 generations, evolving the model pipeline over time. The population size of 30 indicates that 30 different model pipelines will be evaluated in each generation. Cross-validation (cv) is set to 5, meaning a 5-fold cross-validation will be used to assess the model performance during training. The verbosity level is set to 2, providing detailed logging of the training process. A random number seed of 42 ensures the reproducibility of results. The data is split into 80% training set and 20% test set, where 80% of the data is used for training the models and the remaining 20% for evaluating model performance.
+1. single-component **5-FU** adsorption using MOF structural features,
+2. single-component **MTX** adsorption using MOF structural features,
+3. single-component adsorption of **5-FU and MTX** using combined structural and DFT-based drug features,
+4. **co-adsorption of an equimolar 5-FU/MTX mixture** using combined structural and DFT-based features.
 
-- .py files contain the best ML pipelines that are identified for predicting the drug adsorption data at 1 bar.
+Models trained on combined structural and DFT-based features were transferred to 87,691 unseen hypothetical MOFs (5-FU) and 16,554 hypothetical MOFs (MTX), and further tested on an **unseen drug molecule (ibuprofen)** across 500 QMOFs. ML predictions were also compared with experimental data from the literature.
+
+## Repository contents
+
+| Path | Description |
+|---|---|
+| `raw_data.xlsx` | Complete dataset: molecular simulation results (drug uptakes) and all computed MOF structural and DFT-based drug features. |
+| `Original Label Sheets/` | Model-ready Excel files used to train the ML models, one per prediction task. Columns are the input features; the last column is the target (e.g., 5-FU uptake at 1 bar). |
+| `Models/` | Best ML pipelines identified by TPOT for each prediction task (`.py`). |
+| `TPOT Input Parameters.csv` | Settings used for the TPOT pipeline search. |
+| `media/` | Figures used in this README. |
+
+## ML workflow
+
+- **Model selection:** The Tree-based Pipeline Optimization Tool ([TPOT](https://epistasislab.github.io/tpot/archived/) v0.12.2) was used to select regression algorithms from scikit-learn and tune their hyperparameters.
+- **TPOT settings:** 10 generations, population size 30, 5-fold cross-validation, `random_state = 42`.
+- **Data split:** Stratified sampling into 80% training and 20% test sets to keep feature distributions consistent.
+- **Evaluation:** R², RMSE and MAE against molecular simulation results.
+- **Interpretability:** SHapley Additive exPlanations (SHAP) analysis to quantify the magnitude and direction of feature contributions.
 
 - This repository has been archived on Zenodo. The archived version associated with the manuscript is available at: https://doi.org/10.5281/zenodo.21340484
 
