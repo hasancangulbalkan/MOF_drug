@@ -25,7 +25,6 @@ Models trained on combined structural and DFT-based features were transferred to
 | `Original Label Sheets/` | Model-ready Excel files used to train the ML models, one per prediction task. Columns are the input features; the last column is the target (e.g., 5-FU uptake at 1 bar). |
 | `Models/` | Best ML pipelines identified by TPOT for each prediction task (`.py`). |
 | `TPOT Input Parameters.csv` | Settings used for the TPOT pipeline search. |
-| `media/` | Figures used in this README. |
 
 ## ML workflow
 
@@ -34,6 +33,14 @@ Models trained on combined structural and DFT-based features were transferred to
 - **Data split:** Stratified sampling into 80% training and 20% test sets to keep feature distributions consistent.
 - **Evaluation:** R², RMSE and MAE against molecular simulation results.
 - **Interpretability:** SHapley Additive exPlanations (SHAP) analysis to quantify the magnitude and direction of feature contributions.
+
+- ## Usage
+
+Each file in `Models/` is a standalone scikit-learn pipeline exported by TPOT. Set the data path in the script to the corresponding file in `Original Label Sheets/` and run:
+
+```bash
+python Models/[model_file].py
+```
 
 - This repository has been archived on Zenodo. The archived version associated with the manuscript is available at: https://doi.org/10.5281/zenodo.21340484
 
