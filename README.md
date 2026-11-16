@@ -15,3 +15,21 @@ This repository contains the code, data and trained ML models for the paper "Mac
 - .py files contain the best ML pipelines that are identified for predicting the drug adsorption data at 1 bar.
 
 - This repository has been archived on Zenodo. The archived version associated with the manuscript is available at: https://doi.org/10.5281/zenodo.21340484
+
+## Citation
+
+For more technical details, please refer to our [paper](https://doi.org/10.1039/d6dd00223d). If you use this code or data in your research, please cite:
+
+```bibtex
+@article{gulbalkan2026mofdrug,
+  title={Machine learning-accelerated discovery of MOFs for storage and delivery of anticancer drug molecules},
+  author={Gulbalkan, Hasan Can and Keskin, Seda},
+  journal={Digital Discovery},
+  volume={5},
+  number={8},
+  pages={3420--3434},
+  year={2026},
+  publisher={Royal Society of Chemistry},
+  doi={10.1039/d6dd00223d}
+}
+```
