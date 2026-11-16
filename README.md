@@ -1,4 +1,6 @@
-This is the repository that includes the ML models developed to predict drug storage capacities of MOFs. 
+# Machine Learning-Accelerated Discovery of MOFs for Storage and Delivery of Anticancer Drug Molecules
+[![Article](https://img.shields.io/badge/Article-Digital%20Discovery-blue)](https://doi.org/10.1039/d6dd00223d)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21340484.svg)](https://doi.org/10.5281/zenodo.21340484)
 
 - .xlsx files contain the input features for MOFs used to build the ML models. The columns represent various structural features of MOFs and DFT-based features of drug molecules, and the last column is the target data (e.g., 5-FU uptakes at 1 bar).
 
